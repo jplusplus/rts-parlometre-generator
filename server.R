@@ -21,8 +21,11 @@ R.hash <- function(env) {
 	    body=body
 	)
 }
+
+# get the port allowed
+port <- Sys.getenv('PORT', 8080)
 # Add the main endpoint to the server
 R.server$add(app=R.hash, name="distance")
-R.server$start(port=8080)
+R.server$start(port=port)
 
 while (TRUE) Sys.sleep(24 * 60 * 60)
