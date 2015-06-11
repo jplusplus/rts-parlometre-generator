@@ -24,3 +24,5 @@ R.hash <- function(env) {
 # Add the main endpoint to the server
 R.server$add(app=R.hash, name="distance")
 R.server$start(port=8080)
+
+while (TRUE) Sys.sleep(24 * 60 * 60)
