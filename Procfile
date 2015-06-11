@@ -1,1 +1,1 @@
-rserve: R -f server.R
+web: R -f server.R
