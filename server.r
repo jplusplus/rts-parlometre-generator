@@ -26,7 +26,13 @@ R.hash <- function(env) {
 	# Returns a list
 	list(
     	status=200L,
-    	headers=list('Content-Type'='application/json'),
+    	headers=list(
+    		'Content-Type'='application/json',
+    		'Access-Control-Allow-Methods'='*',
+			'Access-Control-Allow-Credentials'='true',
+			'Access-Control-Allow-Origin'='*',
+			'Access-Control-Allow-Headers'='Content-Type, *'
+    	),
 	    body=body
 	)
 }
