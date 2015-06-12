@@ -11,30 +11,30 @@ status <- -1
 
 # Main endpoint
 R.hash <- function(env) {
-	# Retreive the request
+    # Retreive the request
     request <- Rook::Request$new(env)
     # Convert the hash to a vector
-	hash = strsplit( request$GET()$hash, '')
-	# Get the distance
-	result = result <- tryCatch({
-		distance(hash[[1]])
-	}, error = function(err) {
-		list(error=err$message)
-	})
-	# Add the hash to the resuling JSON
-	body = RJSONIO::toJSON(result)
-	# Returns a list
-	list(
-    	status=200L,
-    	headers=list(
-    		'Content-Type'='application/json',
-    		'Access-Control-Allow-Methods'='*',
-			'Access-Control-Allow-Credentials'='true',
-			'Access-Control-Allow-Origin'='*',
-			'Access-Control-Allow-Headers'='Content-Type, *'
-    	),
-	    body=body
-	)
+    hash = strsplit( request$GET()$hash, '')
+    # Get the distance
+    result = result <- tryCatch({
+        distance(hash[[1]])
+    }, error = function(err) {
+        list(error=err$message)
+    })
+    # Add the hash to the resuling JSON
+    body = RJSONIO::toJSON(result)
+    # Returns a list
+    list(
+        status=200L,
+        headers=list(
+            'Content-Type'='application/json',
+            'Access-Control-Allow-Methods'='*',
+            'Access-Control-Allow-Credentials'='true',
+            'Access-Control-Allow-Origin'='*',
+            'Access-Control-Allow-Headers'='Content-Type, *'
+        ),
+        body=body
+    )
 }
 
 # R 2.15.1 uses .Internal, but the next release of R will use a .Call.
@@ -53,7 +53,7 @@ if (status == 0) {
     s$listenAddr <- myInterface
     s$listenPort <- myPort
 
-	# Add the main endpoint to the server
+    # Add the main endpoint to the server
     s$add(app=R.hash, name="distance")
     # Now make the console go to sleep. Of course the web server will still be
     # running.
