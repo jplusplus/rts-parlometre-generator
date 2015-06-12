@@ -20,7 +20,7 @@ Simply enter this command:
 
 	make run
 
-The go to [127.0.0.1:8080/custom/distance?hash=XXXX](http://127.0.0.1:8080/custom/distance?hash=3231333123324133312321321).
+Then go to [127.0.0.1:8080/custom/distance?hash=XXXX](http://127.0.0.1:8080/custom/distance?hash=3231333123324133312321321).
 If you want to run the server on a different port, change the environment variable `$PORT`value.
 
 	export PORT=8181
