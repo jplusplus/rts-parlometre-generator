@@ -1,18 +1,15 @@
 #Frédéric Schütz <schutz@mathgen.ch>
-# Dépendance: package "fields"
-# Installable avec la commande
+# Dépendance: packages "fields" et "RJSONIO"
+# Installables avec la commande
 #   install.packages("fields")
 #   install.packages("RJSONIO")
 
-json_dir <- 'hashes'
 # Pour spécifier les questions d'intérêt: p.ex. les 4 premières
-questions <- c(6,31,39,18)
+questions <- c(6,31,39,18,25,29,30,38,35,16,7,13,21,27,24,20,22,10,28,33,34,37,23,32,12)
 
 library(fields)
 library(RJSONIO)
 
-# Créait le dossier contenant les JSON
-dir.create(json_dir, showWarning=F)
 
 # Charge les données résumées des communes, des cantons, ainsi que
 # la légende des tableaux
@@ -181,25 +178,3 @@ distance <- function( reponses ) {
   return(result)
 }
 
-#reponses <- c(3, 5, 3, 1)  # Réponse typiquement genevoise
-#distance(reponses)
-
-
-# n <- 0
-# for (i in 1:sum(legende[1,]==qquestions[1])) {
-#   for (j in 1:sum(legende[1,]==qquestions[2])) {
-#     for (k in 1:sum(legende[1,]==qquestions[3])) {
-#       for (l in 1:sum(legende[1,]==qquestions[4])) {
-#         n <- n+1
-#         # Récupère les valuers sous forme de list nommé
-#         result <- distance( c(i,j,k,l) )
-#         # Fichier JSON dans lequel écrire
-#         path <- paste(json_dir, '/', result[['hash']], '.json', sep='')
-#         # JSON a mettre dans le fichier
-#         json  <- toJSON(result)
-#         write(json, file=path)
-#         stop()
-#       }
-#     }
-#   }
-# }

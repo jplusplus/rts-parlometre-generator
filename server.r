@@ -14,9 +14,17 @@ R.hash <- function(env) {
 	# Retreive the request
     request <- Rook::Request$new(env)
     # Retreive the hash from query parameters
-	hash = request$GET()$hash
+	hash = strsplit( request$GET()$hash, '')
+	print(hash)
+	print(length(hash))
+
+	result = result <- tryCatch({
+		distance(hash[[1]])
+	}, error = function(err) {
+		list(error=err.message)
+	})
 	# Add the hash to the resuling JSON
-	body = RJSONIO::toJSON( distance( c(3, 5, 3, 1)) )
+	body = RJSONIO::toJSON(result)
 	# Returns a list
 	list(
     	status=200L,
