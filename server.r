@@ -31,7 +31,9 @@ R.hash <- function(env) {
             'Access-Control-Allow-Methods'='*',
             'Access-Control-Allow-Credentials'='true',
             'Access-Control-Allow-Origin'='*',
-            'Access-Control-Allow-Headers'='Content-Type, *'
+            'Access-Control-Allow-Headers'='Content-Type, *',
+            'Surrogate-Control'='max-age=604800',
+            'Cache-Control'='max-age=604800'
         ),
         body=body
     )
