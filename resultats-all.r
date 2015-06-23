@@ -38,3 +38,4 @@ cree_parcours <- function( questions, precedent=NULL ) {
 
 cree_parcours(questions)
 
+
