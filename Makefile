@@ -1,6 +1,6 @@
 install:
-	R -f init.r
-
+	sh init.sh
+	
 run:
 	R -f server.r
 
