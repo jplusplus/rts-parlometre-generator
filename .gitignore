@@ -34,3 +34,5 @@ Thumbs.db
 .tmp
 .publish
 ./hashes
+.Rhistory
+vendor
